@@ -1,0 +1,46 @@
+movies ={harrypotter: 1,
+        wwe: 10,
+        xmas: 2}
+puts " please enter a variable"
+choice = gets.chomp.downcase
+
+case choice
+when "add"
+  puts "please enter title"
+  title = gets.chomp
+  if movies[title.to_sym].nil?
+  puts "enter a rating for the movie please"
+  rating = gets.chomp
+  movies[title.to_sym]= rating.to_i
+  else " enter another movie that movie was chosen"
+end
+
+
+when "update"
+puts "What to update"
+title=gets.chomp
+if movies[title.to_sym].nil?
+puts "that movie isnt in the list"
+else
+    puts "enter a new rating"
+    rating = gets.chomp
+    movies[title.to_sym] = rating.to_i
+end
+
+
+when "display"
+movies.each do|k,e| puts "#{k}: #{e}"
+end
+
+when "delete"
+  puts "title to delete?" 
+  title = gets.chomp
+  if movies[title.to_sym].nil?
+      puts " the movie isnt part of the list"
+  else
+      movies.delete(title.to_sym)
+  end
+  
+  else
+puts "Error! you have selected and invalid selection"
+end
